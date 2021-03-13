@@ -1,15 +1,17 @@
 #!/bin/bash
 
-echo "Starting bootstrap..."
+BASE_DIR_CODE="~/Desktop/code"
+BASE_DIR_CTF="~/Desktop/ctf"
 
+echo "Starting bootstrap..."
 
 echo "Updating apt and installing packages"
 # Update apt and snap
 sudo apt update
 # Grab snapd - package manager
-sudo apt install snapd
+sudo apt-get install -y snapd
 # Grab xclip - clipboard support on text editor
-sudo apt install xclip
+sudo apt-get install -y xclip
 sudo systemctl enable --now snapd apparmor
 
 
@@ -36,16 +38,16 @@ sudo apt-get install -y tldr
 
 echo "Setting up directory structure for development"
 # Create code environment
-mkdir -p ~/Desktop/code/workspace
-mkdir -p ~/Desktop/code/scripts
-mkdir -p ~/Desktop/code/golang
-mkdir -p ~/Desktop/code/python
-mkdir -p ~/Desktop/code/javascript
+mkdir -p "$BASE_DIR_CODE"/workspace
+mkdir -p "$BASE_DIR_CODE"/scripts
+mkdir -p "$BASE_DIR_CODE"/golang
+mkdir -p "$BASE_DIR_CODE"/python
+mkdir -p "$BASE_DIR_CODE"/javascript
 
 echo "Setting up directory structure for CTFs"
 # Create ctf environment
-mkdir -p ~/Desktop/ctf/loot
-mkdir -p ~/Desktop/ctf/notes
-mkdir -p ~/Desktop/ctf/workspace
+mkdir -p "$BASE_DIR_CTF"/loot
+mkdir -p "$BASE_DIR_CTF"/notes
+mkdir -p "$BASE_DIR_CTF"/workspace
 
 echo "All done! You may need to run this script a second time after logging out and in to complete setup."
